@@ -86,14 +86,54 @@ public class MainActivity extends AppCompatActivity {
         if(win){
             return playerValue;
         }
-
-
-
-
+       
         //check rows
+        win = true;
+        for (int c = 0; c < 3; c++) {
+            if (board[row][c] != playerValue) {
+                win = false;
+                break;
+            }
+        }
+
+        if (win){
+            return playerValue;
+        }
+         //check diagonals
+        win = true;
+        for (int a = 0; a < 3; a++){
+
+            if (board[a][a] != playerValue){
+                win = false;
+                break;
+            }
+        }
+        
+        if(win){
+            return playerValue;
+        }
+        
+        win = true;
+        int y = 2;
+        for (int x = 0; x < 3; x++){
+            if (board[x][y] != playerValue){
+                win = false;
+                break;
+            }
+            y--;
+
+        }
+        if(win){
+            return playerValue;
+        }
+        
+        
+
+
+
 
         return -1;
-        //check diagonals
+       
     }
 
     @Override
